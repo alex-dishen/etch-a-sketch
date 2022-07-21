@@ -1,12 +1,15 @@
-const divContainer = document.querySelector('.board');
+const board = document.querySelector('.board');
 
-function createDives() {
+
+function createSquares() {
     for (let i = 0; i < 256; i++) {
-        const div = document.createElement('div');
-        div.classList.add('square');
-        divContainer.appendChild(div)
+        const square = document.createElement('div');
+        square.classList.add('square');
+        board.appendChild(square);
+        square.addEventListener('mouseover', () => {
+            square.style.backgroundColor = 'blue'
+        })
     }
-    
 }
 
-createDives()
+createSquares()
