@@ -52,14 +52,25 @@ header{
 .color-panel {
     height: 90px;
     width: 90px;
-    background-color: #333;
-    border-radius: 50%;
     cursor: pointer;
     transition: transform 0.2s ease-in-out;
 }
 
 .color-panel:hover {
     transform: scale(1.05);
+}
+
+input[type="color"] {
+	-webkit-appearance: none;
+	border: none;
+	width: 90px;
+	height: 90px;
+    border-radius: 50%;
+}
+
+input[type="color"]::-webkit-color-swatch {
+	border: none;
+    border-radius: 50%;
 }
 
 .buttons {
