@@ -1,21 +1,21 @@
-const board = document.querySelector('.board');
-const sizeValue = document.querySelector('.size-value');
-const sizeSlider = document.querySelector('.size-slider');
+const colorBtn = document.querySelector('.color-btn');
+const rainbowBtn = document.querySelector('.rainbow-btn');
+const eraserBtn = document.querySelector('.eraser-btn');
 
-
-function createSquares() {
-    for (let i = 0; i < 256; i++) {
-        const square = document.createElement('div');
-        square.classList.add('square');
-        board.appendChild(square);
-        square.addEventListener('mousedown', () => {
-            square.style.backgroundColor = 'blue'
-        })
-    }
+function colorButton(coloredButton, firstToRemove, secondToRemove) {
+    coloredButton.classList.add('colored-button');
+    firstToRemove.classList.remove('colored-button');
+    secondToRemove.classList.remove('colored-button');
 }
 
-sizeSlider.addEventListener('input', () => {
-    sizeValue.textContent = `${sizeSlider.value} x ${sizeSlider.value}`
-})
+colorBtn.addEventListener('click', () => {
+    colorButton(colorBtn, rainbowBtn, eraserBtn);
+});
 
-createSquares()
+rainbowBtn.addEventListener('click', () => {
+    colorButton(rainbowBtn, colorBtn, eraserBtn);
+});
+
+eraserBtn.addEventListener('click', () => {
+    colorButton(eraserBtn, colorBtn, rainbowBtn);
+});
