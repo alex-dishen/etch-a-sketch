@@ -1,6 +1,8 @@
 const colorBtn = document.querySelector('.color-btn');
 const rainbowBtn = document.querySelector('.rainbow-btn');
 const eraserBtn = document.querySelector('.eraser-btn');
+const sizeValue = document.querySelector('.size-value');
+const sizeSlider = document.querySelector('.size-slider');
 
 function colorButton(coloredButton, firstToRemove, secondToRemove) {
     coloredButton.classList.add('colored-button');
@@ -18,4 +20,8 @@ rainbowBtn.addEventListener('click', () => {
 
 eraserBtn.addEventListener('click', () => {
     colorButton(eraserBtn, colorBtn, rainbowBtn);
+});
+
+sizeSlider.addEventListener('input', () => {
+    sizeValue.textContent = `${sizeSlider.value} x ${sizeSlider.value}`
 });
