@@ -1,21 +1,28 @@
-let currentColor = '#333333';
-let currentMode = 'color';
-
 const board = document.querySelector('.board');
 const colorPanel = document.querySelector('.color-panel');
 const colorBtn = document.querySelector('.color-btn');
 const rainbowBtn = document.querySelector('.rainbow-btn');
 const eraserBtn = document.querySelector('.eraser-btn');
+const clearBtn = document.querySelector('.clear-btn');
 const sizeValue = document.querySelector('.size-value');
 const sizeSlider = document.querySelector('.size-slider');
 
+let currentColor = '#333333';
+let currentMode = 'color';
+let currentSize = 16;
+
+window.onload = () => {
+  setupBoard(currentSize);
+  colorBtn.classList.add('colored-button');
+}
+
 function setupBoard(size) {
-    board.style.gridTemplateColumns = `repeat(${size}, 1fr)`
-    board.style.gridTemplateRows = `repeat(${size}, 1fr)`
+    board.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
+    board.style.gridTemplateRows = `repeat(${size}, 1fr)`;
   
     for (let i = 0; i < (size * size); i++) {
       const square = document.createElement('div');
-      square.classList.add('square')
+      square.classList.add('square');
       board.appendChild(square);
       square.addEventListener('mouseover', changeColor);
       square.addEventListener('mousedown', changeColor);
@@ -40,7 +47,13 @@ function changeColor(e) {
     } else if (currentMode === 'eraser') {
       e.target.style.backgroundColor = '#fefefe'
     }
+    console.log(currentSize)
   }
+
+function reloadBoard() {
+  board.innerHTML = '';
+  setupBoard(currentSize);
+}
 
 function colorButton(coloredButton, firstToRemove, secondToRemove) {
     coloredButton.classList.add('colored-button');
@@ -66,14 +79,13 @@ eraserBtn.addEventListener('click', () => {
 });
 
 sizeSlider.addEventListener('input', () => {
-    sizeValue.textContent = `${sizeSlider.value} x ${sizeSlider.value}`
+    sizeValue.textContent = `${sizeSlider.value} x ${sizeSlider.value}`;
+    currentSize = sizeSlider.value;
 });
 
 sizeSlider.addEventListener('mouseup', () => {
     setupBoard(sizeSlider.value);
+    reloadBoard()
 })
 
-window.onload = () => {
-    setupBoard(16);
-    colorBtn.classList.add('colored-button');
-}
+clearBtn.addEventListener('click', reloadBoard);
