@@ -28,7 +28,7 @@ document.body.onmouseup = () => (mouseDown = false)
 
 function changeColor(e) {
     if (e.type === 'mouseover' && !mouseDown) return
-    console.log(e)
+    
     if (currentMode === 'rainbow') {
       const randomR = Math.floor(Math.random() * 256)
       const randomG = Math.floor(Math.random() * 256)
@@ -49,14 +49,17 @@ function colorButton(coloredButton, firstToRemove, secondToRemove) {
 
 colorBtn.addEventListener('click', () => {
     colorButton(colorBtn, rainbowBtn, eraserBtn);
+    currentMode = 'color'
 });
 
 rainbowBtn.addEventListener('click', () => {
     colorButton(rainbowBtn, colorBtn, eraserBtn);
+    currentMode = 'rainbow'
 });
 
 eraserBtn.addEventListener('click', () => {
     colorButton(eraserBtn, colorBtn, rainbowBtn);
+    currentMode = 'eraser'
 });
 
 sizeSlider.addEventListener('input', () => {
