@@ -47,7 +47,6 @@ function changeColor(e) {
     } else if (currentMode === 'eraser') {
       e.target.style.backgroundColor = '#fefefe'
     }
-    console.log(currentSize)
   }
 
 function reloadBoard() {
