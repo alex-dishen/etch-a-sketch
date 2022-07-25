@@ -2,6 +2,7 @@ let currentColor = '#333333';
 let currentMode = 'color';
 
 const board = document.querySelector('.board');
+const colorPanel = document.querySelector('.color-panel');
 const colorBtn = document.querySelector('.color-btn');
 const rainbowBtn = document.querySelector('.rainbow-btn');
 const eraserBtn = document.querySelector('.eraser-btn');
@@ -21,9 +22,9 @@ function setupBoard(size) {
     }
 }
 
-let mouseDown = false
-document.body.onmousedown = () => (mouseDown = true)
-document.body.onmouseup = () => (mouseDown = false)
+let mouseDown = false;
+document.body.onmousedown = () => (mouseDown = true);
+document.body.onmouseup = () => (mouseDown = false);
 
 
 function changeColor(e) {
@@ -46,6 +47,8 @@ function colorButton(coloredButton, firstToRemove, secondToRemove) {
     firstToRemove.classList.remove('colored-button');
     secondToRemove.classList.remove('colored-button');
 }
+
+colorPanel.addEventListener('input', () => {currentColor = `${colorPanel.value}`})
 
 colorBtn.addEventListener('click', () => {
     colorButton(colorBtn, rainbowBtn, eraserBtn);
