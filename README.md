@@ -1,10 +1,24 @@
 # Etch-A-Sketch
-
-Etch-A-Sketch drawing board created with HTML, CSS and JS.
-
+The **Etch-A-Sketch** game is created according to the assignment from **The Odin Project** [course](https://www.theodinproject.com/paths/foundations/courses/foundations).
+<br>
+<br>
 ![Preview](img/etch-a-sketch.png)
 
-## Links
-- [Live App](https://alex-dishen.github.io/etch-a-sketch/) :point_left:
-- Link to the [Assignment](https://www.theodinproject.com/lessons/foundations-etch-a-sketch)
-- See my next [Project](https://github.com/alex-dishen/calculator)
+### 🔗 **Live preview** of the project is [here](https://alex-dishen.github.io/etch-a-sketch/).
+
+## **Features**
+* Drawing on the board only when mouse is clicked
+* Changing size of board
+* Choosing any color user wants
+* Choosing rainbow mode which filles square with randomly generated color
+
+## **Outcome**
+* Used **HTML**
+* Used **CSS**
+* Used **JavaScript**
+* Learned loops
+* Learned how to manipulate DOM
+
+## **Links**
+* See my next [Project](https://github.com/alex-dishen/calculator)
+* See my previous [Project](https://alex-dishen.github.io/rock-paper-scissors/)
